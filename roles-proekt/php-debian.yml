@@ -1,0 +1,13 @@
+---
+
+- hosts: all
+  become: yes
+  tasks:
+  -  name: Install php on Ubuntu
+     apt:
+        name=php
+        state=latest
+     when:
+        ansible_os_family == "Debian"
+     notify:
+

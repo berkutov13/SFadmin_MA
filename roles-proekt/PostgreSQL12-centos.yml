@@ -1,0 +1,12 @@
+---
+
+- hosts: all
+  become: yes
+  tasks:
+  -  name: Install postgresql12-server on RedHat Family
+     yum:
+        name=postgresql12-server
+        state=latest
+     when:
+        ansible_os_family == "RedHat"
+     notify:
